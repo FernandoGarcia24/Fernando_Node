@@ -1,36 +1,43 @@
+
+const {tracksModel} = require('../models')
+
 /**
- * Obtener un detalle 
+ * Obtener lista de la base de datos  
  * @param {*} req
  * @param {*} res
  */
-const getItems = (req, res) => { };
+const getItems = async (req, res) => {
+    const data = await tracksModel.find({});
+    res.send({data});
+ };
 
 /**
- * Insertar un registro
+ * obtener un detalle
  * @param {*} req
  * @param {*} res
  */
 const getItem = (req, res) => { };
 
 /**
- * Actualizar un registro
+ * Insertar un registro
  * @param {*} req 
  * @param {*} res 
  */
 const createItem = (req, res) => { };
 
 /**
- * Eliminar un registro
+ * Actualizar un registro
  * @param {*} req 
  * @param {*} res 
  */
 const updateItem = (req, res) => { };
 
 /**
- * Eli
+ *  Eliminar un registro
  * @param {*} req 
  * @param {*} res 
  */
 const deleteItem = (req, res) => { };
+
 
 module.exports = { getItems, getItem, createItem, updateItem, deleteItem };
