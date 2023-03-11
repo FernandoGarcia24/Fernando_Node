@@ -1,13 +1,14 @@
 const mongoose = require("mongoose");
+const mongooseDelete = require("mongoose-delete")
 
 const TracksScheme = new mongoose.Schema(
     {
         name: {
-            type: String,
+            type: String,   
         },
 
         album: {
-            type: Number,
+            type: String,
         },
 
         cover: {
@@ -34,7 +35,7 @@ const TracksScheme = new mongoose.Schema(
         },
 
         duration: {
-            stark: {
+            start: {
                 type: Number
             },
             end: {
@@ -43,7 +44,7 @@ const TracksScheme = new mongoose.Schema(
         },
 
         mediaId: {
-            type: mongoose.Types.ObjectId
+            type: mongoose.Types.ObjectId,
         },
     },
 
@@ -55,4 +56,5 @@ const TracksScheme = new mongoose.Schema(
 
 );
 
+TracksScheme.plugin(mongooseDelete, { overrideMethods: "all" });
 module.exports = mongoose.model("tracks", TracksScheme);
